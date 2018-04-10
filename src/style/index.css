@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+body,
+body * {
+	color: #666;
+	font-family: 'Roboto', sans-serif;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+header .logo strong {
+	font-size: 1.6rem;
+	line-height: 3.2rem;
+	color: #eee;
+}
+
+nav.drawer section a {
+	padding: .6rem;
+	text-decoration: unset;
+}
+
+.profile-part {
+	background-color: violet;
+	height: 220px;
+}
+
+.card {
+	border-color: #e4e4e4;
+}
+
+.card .section {
+	border-color: #e4e4e4;
+}
+
