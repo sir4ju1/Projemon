@@ -59,7 +59,6 @@ export default class TodoItem extends Component {
 	}
 
 	render({ todo:{ title, completed }, onToggle, onDestroy, editing }, { editText }) {
-		console.log(completed, editing)
 		return (
 			<li class={cx({ completed, editing })}>
 				<div class="view">

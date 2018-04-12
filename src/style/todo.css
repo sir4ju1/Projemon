@@ -127,7 +127,7 @@ label[for='toggle-all'] {
 	display: none;
 }
 
-.todo-list li .toggle {
+.todo-list li .toggle, .toggle-detail, .toggle.subtask {
 	text-align: center;
 	width: 40px;
 	/* auto, since non-WebKit browsers doesn't support input styling */
@@ -144,17 +144,18 @@ label[for='toggle-all'] {
 	clip-path: inherit;
 }
 
-.todo-list li .toggle:focus {
+.todo-list li .toggle:focus, .toggle-detail:focus, .toggle.subtask:focus {
 	outline: 0;
 }
 
-.todo-list li .toggle:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ccc" stroke-width="4"/></svg>');
+.todo-list li .toggle:after, .toggle-detail:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ccc" stroke-width="5"/></svg>');
 }
 
-.todo-list li .toggle:checked:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="#00ee0010" stroke="#999" stroke-width="4"/><path fill="#00ee00" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+.todo-list li .toggle:checked:after, .toggle-detail:checked:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="#00ee0002" stroke="#999" stroke-width="5"/><path fill="#00ee00" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
+
 
 .todo-list li label {
   font-weight: 100;
@@ -217,7 +218,7 @@ label[for='toggle-all'] {
 	height: 20px;
 	text-align: center;
 	border-top: 1px solid #e6e6e6;	
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+	/* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2); */
 
 }
 
@@ -325,5 +326,75 @@ html .clear-completed:active {
 	}
 	.filters {
 		bottom: 10px;
+	}
+}
+.subtask-header {
+	padding-top: 10px;
+}
+.toggle-detail {
+	height: 45px;
+	bottom: inherit;
+	top: 10px;
+}
+.toggle-detail+h3  {
+	font-size: 18px;
+	font-weight: 600;
+	margin-left: 50px;
+	line-height: 1.1rem;
+}
+.add-subtask {
+	padding: 1rem;
+}
+.subtask-line {
+	display: flex;
+	border-bottom: 1px solid #eee;
+	margin-bottom: .3rem;
+}
+.subtask-line.completed h4 {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+.toggle.subtask {
+	position: relative;
+}
+.toggle.subtask:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ccc" stroke-width="5"/></svg>');
+}
+.toggle.subtask:checked:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="#00ee0002" stroke="#999" stroke-width="5"/><path fill="#00ee00" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.toggle.subtask+h4 {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: .7rem;
+}
+.new-line {
+	display: flex;
+	padding-left: 0.4rem;
+}
+.new-line a {
+	width: 36px;
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+	top: .3rem;
+	left: .3rem;
+}
+.new-line input[type="text"] {
+	border: none;
+	padding: 2px;
+}
+.new-line input:focus {
+	outline: 0;
+
+}
+
+@media screen and (max-width: 700px) {
+	.mb-top {
+		position: absolute;
+		z-index: 99;
+	}
+	.mb-top .card {
+		
 	}
 }
