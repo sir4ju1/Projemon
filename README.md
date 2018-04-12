@@ -1,5 +1,5 @@
-# preact_pwa
-
+# Projecmon
+### A Preact PWA App for Project Management
 ## CLI Commands
 
 ``` bash
@@ -18,5 +18,3 @@ npm run serve
 # run tests with jest and preact-render-spy 
 npm run test
 ```
-
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
