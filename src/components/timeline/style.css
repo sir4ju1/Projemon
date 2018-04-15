@@ -13,25 +13,7 @@ div.container {
   overflow-y: scroll;
   padding: 0rem 1rem 0rem 1rem;
 }
-.item::-webkit-scrollbar{
-  width: 8px;
-  background-color: #f5f5f5;
-}
 
-
-.item::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #aaa;
-  border: 1px solid #aaa;
-}
-
-.item::-webkit-scrollbar-thumb:hover {
-  background: #888;
-}
-
-.item::-webkit-scrollbar-thumb:active {
-  background: #555;
-}
 
 #timeline {
   position: relative;

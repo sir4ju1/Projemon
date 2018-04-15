@@ -95,7 +95,7 @@ export default class Todo extends Component {
 				</div>
 
 				{ todos.length ? (
-					<section class="main">
+					<section class="todo-items">
 					
 
 						<ul class="todo-list">

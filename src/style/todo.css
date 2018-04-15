@@ -1,12 +1,20 @@
-.hidden {
-	display: none;
+
+
+.todoapp .header {
+	background: #fff;
+}
+.todoapp .card.fluid {
+	height: 80vh;
+	padding-bottom: 4rem;
+}
+.todoapp .subtask-items {
+	height: 65vh;
+	overflow-y: scroll;
 }
 
-.todoapp {
-	background: #fff;
-	margin-top: .5rem;
-	position: relative;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+.todoapp .todo-items {
+	height: 74vh;
+	overflow-y: scroll;
 }
 
 .todoapp input::-webkit-input-placeholder {
@@ -105,6 +113,13 @@ label[for='toggle-all'] {
 	font-size: 24px;
 	border-bottom: 1px solid #ededed;
 	background: #f9f9f9;
+}
+.todo-list li .view {
+	cursor: pointer;
+}
+
+.todo-list li:hover {
+	background-color: #fdfdfd;
 }
 
 .todo-list li:last-child {
@@ -212,7 +227,10 @@ label[for='toggle-all'] {
 }
 
 .footer {
-	background: #f9f9f9;
+	position: absolute;
+	bottom: 0;
+	width: 96%;
+	background: #fff;
 	color: #888;
 	padding: 10px 15px;
 	height: 20px;
@@ -222,9 +240,6 @@ label[for='toggle-all'] {
 
 }
 
-.footer {
-  background: white;
-}
 
 .todo-count {
 	float: left;
@@ -330,16 +345,17 @@ html .clear-completed:active {
 }
 .subtask-header {
 	padding-top: 10px;
+	display:flex;
 }
 .toggle-detail {
+	position: relative;
+	width: 45px;
 	height: 45px;
 	bottom: inherit;
-	top: 10px;
 }
 .toggle-detail+h3  {
 	font-size: 18px;
-	font-weight: 600;
-	margin-left: 50px;
+	font-weight: 500;
 	line-height: 1.1rem;
 }
 .add-subtask {
@@ -383,6 +399,7 @@ html .clear-completed:active {
 .new-line input[type="text"] {
 	border: none;
 	padding: 2px;
+	width: 100%;
 }
 .new-line input:focus {
 	outline: 0;
@@ -393,8 +410,9 @@ html .clear-completed:active {
 	.mb-top {
 		position: absolute;
 		z-index: 99;
+		width: 100%;
 	}
-	.mb-top .card {
-		
+	.mb-top.hide {
+		visibility: hidden;
 	}
 }

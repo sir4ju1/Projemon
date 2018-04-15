@@ -1,20 +1,23 @@
 import { h, Component } from 'preact';
-
+import { connect } from 'preact-redux';
 import linkState from 'linkstate';
 import cx from 'classnames'
 const ESCAPE_KEY = 27;
 const ENTER_KEY = 13;
 
+import * as actions from '../../actions';
+import reducers from '../../reducers';
+
+@connect(reducers, actions)
 export default class TodoItem extends Component {
 	handleSubmit = () => {
-		let { onSave, onDestroy, todo } = this.props,
-			val = this.state.editText.trim();
+		console.log(this.props)
+
+		val = this.state.editText.trim();
 		if (val) {
-			onSave(todo, val);
 			this.setState({ editText: val });
 		}
 		else {
-			onDestroy(todo);
 		}
 	};
 
@@ -31,16 +34,16 @@ export default class TodoItem extends Component {
 	};
 
 	handleKeyDown = e => {
-		if (e.which===ESCAPE_KEY) {
+		if (e.which === ESCAPE_KEY) {
 			let { todo } = this.props;
 			this.setState({ editText: todo.title });
 			this.props.onCancel(todo);
 		}
-		else if (e.which===ENTER_KEY) {
+		else if (e.which === ENTER_KEY) {
 			this.handleSubmit();
 		}
 	};
-	
+
 	handleDestroy = () => {
 		this.props.onDestroy(this.props.todo);
 	};
@@ -58,9 +61,9 @@ export default class TodoItem extends Component {
 		if (node) node.focus();
 	}
 
-	render({ todo:{ title, completed }, onToggle, onDestroy, editing }, { editText }) {
+	render({ todo: { title, completed }, onToggle, onDestroy, editing, selectTodo }, { editText }) {
 		return (
-			<li class={cx({ completed, editing })}>
+			<li class={cx({ completed, editing })} onClick={() => selectTodo({ title, completed })}>
 				<div class="view">
 					<input
 						class="toggle"
@@ -71,7 +74,7 @@ export default class TodoItem extends Component {
 					<label onDblClick={this.handleEdit}>{title}</label>
 					<a href="javascript:" class="destroy" onClick={this.handleDestroy} />
 				</div>
-				{ editing && (
+				{editing && (
 					<input
 						class="edit"
 						value={editText}
@@ -79,7 +82,7 @@ export default class TodoItem extends Component {
 						onInput={linkState(this, 'editText')}
 						onKeyDown={this.handleKeyDown}
 					/>
-				) }
+				)}
 			</li>
 		);
 	}
